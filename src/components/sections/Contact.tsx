@@ -53,7 +53,7 @@ export function Contact() {
             ))}
           </ul>
           <p className="font-mono text-xs text-paper-faint">
-            © {year} {person.name}. Built from scratch, no template.
+            © {year} {person.name} Built from scratch, no template.
           </p>
         </div>
       </div>

@@ -17,7 +17,7 @@ export function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
-  const active = useActiveSection(isHome ? SECTIONS.map((s) => s.id) : []);
+  const active = useActiveSection(isHome ? ["hero", ...SECTIONS.map((s) => s.id)] : []);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const goToSection = (id: string) => {

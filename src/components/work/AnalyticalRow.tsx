@@ -17,6 +17,17 @@ export function AnalyticalRow({ work }: { work: Work }) {
             </li>
           ))}
         </ul>
+        {work.reportHref && (
+          <a
+            href={work.reportHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="true"
+            className="mt-4 inline-block font-mono text-xs uppercase tracking-[0.14em] text-paper-dim underline decoration-graphite-700 underline-offset-4 transition-colors hover:text-ember-500 hover:decoration-ember-500"
+          >
+            View project report
+          </a>
+        )}
       </div>
 
       {work.metrics && work.metrics.length > 0 && (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { person } from "@/data/content";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { useTilt } from "@/lib/useTilt";
 import { Dial } from "./Dial";
 
 const ROLE_INTERVAL = 2200;
@@ -8,6 +9,7 @@ const ROLE_INTERVAL = 2200;
 export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const reducedMotion = useReducedMotion();
+  const dialTiltRef = useTilt<HTMLDivElement>({ max: 9, scale: 1 });
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -68,7 +70,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-[420px] md:mx-0 md:justify-self-end">
+        <div
+          ref={dialTiltRef}
+          className="tilt-dial mx-auto w-full max-w-[420px] md:mx-0 md:justify-self-end"
+          style={{ transformStyle: "preserve-3d" }}
+        >
           <Dial />
         </div>
       </div>

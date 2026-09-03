@@ -11,7 +11,7 @@ export function Journey() {
         <div className="mt-14 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
           <div>
             <h3 className="reveal font-mono text-xs uppercase tracking-[0.2em] text-paper-faint">Experience</h3>
-            <ol className="mt-6 border-l border-graphite-700">
+            <ol className="timeline mt-6">
               {experience.map((entry) => (
                 <li key={entry.role} className="reveal relative pb-10 pl-8 last:pb-0">
                   <span className="absolute -left-[5px] top-1.5 h-[9px] w-[9px] rounded-full bg-ember-500" />
@@ -32,7 +32,7 @@ export function Journey() {
 
           <div>
             <h3 className="reveal font-mono text-xs uppercase tracking-[0.2em] text-paper-faint">Education</h3>
-            <ol className="mt-6 border-l border-graphite-700">
+            <ol className="timeline mt-6">
               {education.map((entry) => (
                 <li key={entry.degree} className="reveal relative pb-10 pl-8 last:pb-0">
                   <span className="absolute -left-[5px] top-1.5 h-[9px] w-[9px] rounded-full bg-ember-500" />

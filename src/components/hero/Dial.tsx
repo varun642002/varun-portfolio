@@ -79,8 +79,18 @@ export function Dial() {
   const restAngle = valueToAngle(REST_VALUE);
 
   return (
-    <div ref={wrapRef} className="relative aspect-square w-full max-w-[420px] select-none" aria-hidden="true">
-      <svg viewBox="0 0 300 300" className="h-full w-full overflow-visible">
+    <div
+      ref={wrapRef}
+      className="relative aspect-square w-full max-w-[420px] select-none rounded-full"
+      style={{
+        background:
+          "radial-gradient(circle at 35% 30%, var(--color-graphite-800), var(--color-graphite-950) 72%)",
+        boxShadow:
+          "inset 0 2px 24px rgba(0,0,0,0.6), inset 0 -1px 6px rgba(255,255,255,0.04), 0 30px 60px -20px rgba(0,0,0,0.6)",
+      }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 300 300" className="h-full w-full overflow-visible" style={{ filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.45))" }}>
         <circle cx={CENTER} cy={CENTER} r={OUTER_R} fill="none" stroke="var(--color-graphite-700)" strokeWidth="1.5" />
 
         <path

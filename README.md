@@ -1,32 +1,47 @@
-# React + TypeScript + Vite
+# Varun S. — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A ground-up personal portfolio built around a "Telemetry" concept: instrument-gauge
+visuals and a signal-trace motion language, grounded in the real arc from Formula
+Student brake engineering to business analytics and BI.
 
-Currently, two official plugins are available:
+Live: https://varun642002.github.io/varun-portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 + TypeScript, built with Vite
+- Tailwind CSS v4 (CSS-first `@theme` tokens, no config file)
+- React Router for the home page + case-study routes
+- Framer Motion for route transitions only (in-page reveals use native
+  CSS scroll-driven animations, not a JS library)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure
 
-## Expanding the Oxlint configuration
+- `src/data/content.ts` — every real fact on the site (projects, experience,
+  education, achievements, certifications, contact info). Update this file
+  to change site content; no component edits needed.
+- `src/components/hero/Dial.tsx` — the signature instrument-dial interaction
+- `src/components/sections/` — one file per page section
+- `src/components/work/` — project card variants
+- `src/lib/` — small hooks (reduced motion, touch detection, 3D tilt, count-up, etc.)
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Development
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # dev server
+npm run build    # type-check + production build
+npm run lint      # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the
+site and publishes it to GitHub Pages via GitHub Actions. The Vite `base` in
+`vite.config.ts` is set to `/varun-portfolio/` to match the Pages project
+path — update it if the repo is ever renamed or moved to a custom domain.
+
+## Content credit
+
+Real project screenshots, the resume PDF, and certificate images are the
+same assets used on the previous portfolio (`varun642002.github.io`); the
+design, structure, and code here are new.

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { asset } from "@/lib/asset";
 import type { Certification } from "@/data/content";
 
 type CertificateModalProps = {
@@ -43,7 +44,7 @@ export function CertificateModal({ certification, onClose }: CertificateModalPro
           Close
         </button>
         <img
-          src={`/certificates/${certification.code}.jpeg`}
+          src={asset(`/certificates/${certification.code}.jpeg`)}
           alt={`${certification.title} certificate from ${certification.issuer}`}
           className="mt-8 w-full rounded-lg"
         />

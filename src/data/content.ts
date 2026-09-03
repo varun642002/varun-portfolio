@@ -1,15 +1,17 @@
 // Single source of truth for site copy. Ported from the real data in the
 // previous portfolio (varun642002.github.io) -- nothing here is invented.
+import { asset } from "@/lib/asset";
+
 
 export const person = {
   name: "Varun S.",
   initials: "VS",
-  photo: "/profile.png",
+  photo: asset("/profile.png"),
   roles: ["Analyst", "Engineer", "Builder", "Scholar"],
   tagline:
-    "Building analytics that people act on -- SQL models, Power BI dashboards and Azure pipelines, from raw extract to the decision it supports.",
+    "Building analytics that people act on — SQL models, Power BI dashboards and Azure pipelines, from raw extract to the decision it supports.",
   email: "varunaadithiya@gmail.com",
-  resume: "/resume.pdf",
+  resume: asset("/resume.pdf"),
   contactLine:
     "Open to opportunities in data analytics, business analytics, business intelligence and entry-level data engineering roles.",
   socials: [
@@ -21,15 +23,15 @@ export const person = {
 
 export const about = {
   paragraph:
-    "I started out in automobile engineering -- brake systems, test rigs, Formula Student deadlines -- and moved into business analytics because the questions I cared about were always in the data. Day to day that means SQL models, Power BI and Looker dashboards, and Azure pipelines that turn messy operational data into decisions people actually make. The rest of the time I ship the analysis as software.",
+    "I started out in automobile engineering — brake systems, test rigs, Formula Student deadlines — and moved into business analytics because the questions I cared about were always in the data. Day to day that means SQL models, Power BI and Looker dashboards, and Azure pipelines that turn messy operational data into decisions people actually make. The rest of the time I ship the analysis as software.",
   focus:
     "IGNYT, an offline-first fitness app on Google Play; IGNYT Coach, the platform trainers run their clients from; AuraVault, a family health record vault; and MoneyVault, an expense tracker built on a single live ledger.",
 };
 
 export const stats = [
-  { value: "100K+", unit: "rows", label: "Records analysed across live projects" },
-  { value: "30", unit: "people", label: "Formula Student team led to a national podium" },
-  { value: "8", unit: "certs", label: "Certifications across AI, ML, stats and finance" },
+  { target: 100, suffix: "K+", unit: "rows", label: "Records analysed across live projects" },
+  { target: 30, suffix: "", unit: "people", label: "Formula Student team led to a national podium" },
+  { target: 8, suffix: "", unit: "certs", label: "Certifications across AI, ML, stats and finance" },
 ];
 
 export type SkillGroup = {
@@ -91,7 +93,7 @@ export type Work = {
   category: "product" | "analytics" | "research";
 };
 
-// Flagship builds -- shipped products with real screenshots and, in most
+// Flagship builds — shipped products with real screenshots and, in most
 // cases, a live URL. These get full case-study pages.
 export const flagshipWork: Work[] = [
   {
@@ -103,7 +105,7 @@ export const flagshipWork: Work[] = [
     problem:
       "Turning a raw dataset into a decision usually means bouncing between a notebook, a BI tool and a chat window. ForgeInsight puts upload, exploration and AI-assisted insight generation in one workspace.",
     approach:
-      "A web application built around dataset upload, exploratory analysis views and generative-AI-assisted insight surfacing -- the same instinct behind the BI dashboard work, wired into a product instead of a report.",
+      "A web application built around dataset upload, exploratory analysis views and generative-AI-assisted insight surfacing — the same instinct behind the BI dashboard work, wired into a product instead of a report.",
     tags: ["AI Analytics", "Data Analysis", "Dashboard", "Web Application"],
     href: "https://ai-data-analytics-workspace.vercel.app/",
     linkLabel: "View live application",
@@ -115,7 +117,7 @@ export const flagshipWork: Work[] = [
     title: "IGNYT Coach",
     kind: "SaaS platform for trainers",
     summary:
-      "A platform for personal trainers, gyms, nutritionists and online coaches -- clients, programmes, meal plans, check-ins, messaging and billing, with assigned work syncing straight into the IGNYT app each client uses.",
+      "A platform for personal trainers, gyms, nutritionists and online coaches — clients, programmes, meal plans, check-ins, messaging and billing, with assigned work syncing straight into the IGNYT app each client uses.",
     problem:
       "Coaches run their business across spreadsheets, messaging apps and payment links. IGNYT Coach gives them one dashboard for clients, programming and billing that talks directly to the client-facing app.",
     approach:
@@ -135,9 +137,9 @@ export const flagshipWork: Work[] = [
     problem:
       "A family medical history lives across paper folders, pharmacy apps and a dozen PDF reports. AuraVault gives every dependent a record, and every record an owner.",
     approach:
-      "Built on Firebase so record ownership is enforced by document path in security rules rather than by application code -- the access model is the data model, not an afterthought bolted onto it.",
+      "Built on Firebase so record ownership is enforced by document path in security rules rather than by application code — the access model is the data model, not an afterthought bolted onto it.",
     tags: ["React Native", "Expo", "Firebase", "Firestore", "OCR"],
-    shots: ["/shots/auravault-home.webp", "/shots/auravault-records.webp", "/shots/auravault-explore.webp"],
+    shots: [asset("/shots/auravault-home.webp"), asset("/shots/auravault-records.webp"), asset("/shots/auravault-explore.webp")],
     featured: true,
     category: "product",
   },
@@ -146,13 +148,13 @@ export const flagshipWork: Work[] = [
     title: "MoneyVault",
     kind: "Personal finance command center",
     summary:
-      "An expense tracker where every figure on screen is derived from one live ledger and every action writes back to it -- budgets, goals, net worth, cash-flow projection and payday allocation.",
+      "An expense tracker where every figure on screen is derived from one live ledger and every action writes back to it — budgets, goals, net worth, cash-flow projection and payday allocation.",
     problem:
       "Most budgeting apps drift out of sync with reality within a month. MoneyVault keeps one ledger as the single source of truth so every screen recomputes from the same numbers.",
     approach:
       "Bank statements import from CSV, Excel or PDF through a column mapper and categorisation rules, with a full audit trail and undo per import.",
     tags: ["React", "TypeScript", "Tailwind", "Capacitor", "Data Import"],
-    shots: ["/shots/moneyvault-dashboard.webp", "/shots/moneyvault-cashflow.webp", "/shots/moneyvault-budgets.webp"],
+    shots: [asset("/shots/moneyvault-dashboard.webp"), asset("/shots/moneyvault-cashflow.webp"), asset("/shots/moneyvault-budgets.webp")],
     featured: true,
     category: "product",
   },
@@ -167,7 +169,7 @@ export const flagshipWork: Work[] = [
     approach:
       "Ships to Google Play as com.varun.ignyt through Capacitor, reads and writes Google Health Connect, and has an iOS build with a Swift HealthKit plugin behind Codemagic CI.",
     tags: ["Capacitor", "Android", "Health Connect", "Offline-first", "Next.js"],
-    shots: ["/shots/ignyt-home.webp", "/shots/ignyt-features.webp", "/shots/ignyt-download.webp"],
+    shots: [asset("/shots/ignyt-home.webp"), asset("/shots/ignyt-features.webp"), asset("/shots/ignyt-download.webp")],
     href: "https://igny-tfit-in.vercel.app",
     linkLabel: "View live site",
     featured: true,
@@ -175,7 +177,7 @@ export const flagshipWork: Work[] = [
   },
 ];
 
-// Analytics & research work -- real projects without a shippable UI. These
+// Analytics & research work — real projects without a shippable UI. These
 // get a dense editorial treatment on the home page rather than a full case
 // study, and their metrics are shown directly rather than as illustration.
 export const analyticalWork: Work[] = [
@@ -215,7 +217,7 @@ export const analyticalWork: Work[] = [
     title: "Agricultural Machinery Adoption & Crop Returns",
     kind: "MBA master thesis, 2026",
     summary:
-      "An empirical study of the financial impact of machinery adoption, using primary data from 166 farming households -- descriptive statistics, Pearson correlation, reliability analysis, multiple regression and hypothesis testing.",
+      "An empirical study of the financial impact of machinery adoption, using primary data from 166 farming households — descriptive statistics, Pearson correlation, reliability analysis, multiple regression and hypothesis testing.",
     tags: ["Statistical Analysis", "Regression", "Pearson Correlation", "Hypothesis Testing", "ROI Analysis"],
     metrics: [
       { value: "166", label: "Farming households" },
@@ -231,8 +233,9 @@ export const analyticalWork: Work[] = [
     title: "Formula Student Brake System",
     kind: "B.E. final year project, 2024",
     summary:
-      "Design and development of an effective braking system for a Formula Student vehicle -- engineering design, braking performance, vehicle safety and component selection.",
+      "Design and development of an effective braking system for a Formula Student vehicle — engineering design, braking performance, vehicle safety and component selection.",
     tags: ["Automobile Engineering", "Formula Student", "Brake System Design", "Vehicle Dynamics", "Vehicle Safety"],
+    reportHref: asset("/formula-student-brake-report.pdf"),
     featured: false,
     category: "research",
   },
@@ -251,10 +254,10 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Business Analytics Intern",
     org: "Aruna Agencies, Namakkal",
-    period: "May 2025 - Nov 2025",
+    period: "May 2025 – Nov 2025",
     points: [
       "Analysed more than 50,000 rows of operational and sales data using SQL and Advanced Excel.",
-      "Built structured analytical reports and dashboards for business decision-making -- more than 10 delivered to senior stakeholders.",
+      "Built structured analytical reports and dashboards for business decision-making — more than 10 delivered to senior stakeholders.",
       "Ran customer research with approximately 150 farmers and analysed satisfaction trends.",
       "Performed competitor analysis across 13 outlets to evaluate market positioning.",
     ],
@@ -262,7 +265,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Junior Design Engineer",
     org: "Ponnar Sankar Tractor",
-    period: "2020 - 2021",
+    period: "2020 – 2021",
     points: [
       "Supported engineering design and technical development in the agricultural machinery industry.",
       "Applied practical engineering principles to design tasks and technical problem-solving.",
@@ -272,7 +275,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Data Analytics & Data Engineering",
     org: "Independent projects & professional development",
-    period: "2024 - Present",
+    period: "2024 – Present",
     points: [
       "Built analytics projects using SQL, Power BI, Excel, Looker Studio and BI tooling.",
       "Expanded into cloud data engineering with Azure Data Factory, Databricks, Synapse Analytics, Dataflows, Pipelines and Key Vault.",
@@ -291,7 +294,7 @@ export type EducationEntry = {
 
 export const education: EducationEntry[] = [
   {
-    period: "2024 - 2026",
+    period: "2024 – 2026",
     degree: "Master of Business Administration",
     field: "Business Analytics",
     school: "CMS Business School, JAIN (Deemed-to-be University)",
@@ -317,25 +320,25 @@ export const achievements: Achievement[] = [
   {
     tag: "2024",
     title: "SAE Student of the Year",
-    body: "The SAE chapter annual award, given for sustained technical contribution, leadership and active participation across engineering initiatives -- following three consecutive years of competition work, from the electric vehicle project in 2022 through two Formula Student campaigns.",
+    body: "The SAE chapter annual award, given for sustained technical contribution, leadership and active participation across engineering initiatives — following three consecutive years of competition work, from the electric vehicle project in 2022 through two Formula Student campaigns.",
     metrics: ["Annual chapter award", "3 years of competition work"],
   },
   {
     tag: "2023",
     title: "Team Manager, SAE SUPRA",
-    body: "Ran a 30-member Formula Student team through a national campaign, finishing 2nd among roughly 80 teams -- project coordination as much as engineering, holding schedules and responsibilities across subsystems through scrutineering and the race itself.",
+    body: "Ran a 30-member Formula Student team through a national campaign, finishing 2nd among roughly 80 teams — project coordination as much as engineering, holding schedules and responsibilities across subsystems through scrutineering and the race itself.",
     metrics: ["30-member team", "2nd of ~80 teams", "National"],
   },
   {
     tag: "2023",
     title: "Vice Captain, FMAE Formula Student",
-    body: "Second-in-command on a campaign that placed 3rd nationally overall and took 1st in two individual events -- design and acceleration. The design win is judged: the team defends its engineering choices to a panel.",
+    body: "Second-in-command on a campaign that placed 3rd nationally overall and took 1st in two individual events — design and acceleration. The design win is judged: the team defends its engineering choices to a panel.",
     metrics: ["3rd overall", "1st in design", "1st in acceleration"],
   },
   {
     tag: "2022",
     title: "Group Captain, Electric Vehicle Project",
-    body: "Led an electric vehicle project team to 1st place overall against 25 competing teams -- the first of three competition years and the entry point into leading a build team rather than working inside one.",
+    body: "Led an electric vehicle project team to 1st place overall against 25 competing teams — the first of three competition years and the entry point into leading a build team rather than working inside one.",
     metrics: ["1st overall", "25 teams"],
   },
 ];

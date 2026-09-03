@@ -1,4 +1,5 @@
 import { skills } from "@/data/content";
+import { CapabilityTile } from "./CapabilityTile";
 
 export function Capabilities() {
   return (
@@ -15,10 +16,7 @@ export function Capabilities() {
 
         <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-graphite-800 bg-graphite-800 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((skill) => (
-            <div key={skill.title} className="reveal bg-graphite-900 p-6 transition-colors hover:bg-graphite-850">
-              <h3 className="font-display text-lg font-semibold text-paper">{skill.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-paper-dim">{skill.body}</p>
-            </div>
+            <CapabilityTile key={skill.title} skill={skill} />
           ))}
         </div>
       </div>

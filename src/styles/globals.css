@@ -16,12 +16,12 @@
   --color-paper-dim: #a79e8d;
   --color-paper-faint: #6f6858;
 
-  --color-ember: #ff6a34;
-  --color-ember-500: #ff6a34;
-  --color-ember-600: #e2531f;
-  --color-ember-700: #c24e22;
-  --color-ember-soft: #ffb088;
-  --color-ember-wash: #3a2415;
+  --color-ember: #d4a73c;
+  --color-ember-500: #d4a73c;
+  --color-ember-600: #bd8f2a;
+  --color-ember-700: #9c7620;
+  --color-ember-soft: #e9cd8a;
+  --color-ember-wash: #3a3115;
 
   --breakpoint-xs: 22.5rem;
 }
@@ -158,5 +158,68 @@ body.cursor-none * {
 @supports not (animation-timeline: view()) {
   .reveal {
     animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    360px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    color-mix(in srgb, var(--color-ember-500) 16%, transparent),
+    transparent 60%
+  );
+}
+
+.tilt-card:hover::after {
+  opacity: 1;
+}
+
+.tilt-dial {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-ember-500), var(--color-graphite-700) 85%);
+  transform-origin: top;
+  transform: scaleY(0);
+  animation: growLine linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 85%;
+}
+
+@keyframes growLine {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .timeline::before {
+    transform: scaleY(1);
+    background: var(--color-graphite-700);
   }
 }
