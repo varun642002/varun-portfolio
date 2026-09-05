@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://varun642002.github.io/varun-portfolio/sitemap.xml
