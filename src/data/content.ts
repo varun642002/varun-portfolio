@@ -184,11 +184,15 @@ export const analyticalWork: Work[] = [
   {
     slug: "retail-analytics",
     title: "Retail Sales & Inventory Analytics",
-    kind: "SQL, Power BI",
+    kind: "SQL, Azure Data Factory, Power BI",
     summary:
-      "More than 100,000 sales records analysed to identify revenue trends, understand customer behaviour, evaluate product performance and support inventory decisions.",
-    tags: ["SQL", "Power BI", "Data Modeling", "DAX", "Power Query"],
-    metrics: [{ value: "100K+", label: "Sales records" }],
+      "Automated ingestion of more than 100,000 sales and inventory records through 3 ETL pipelines, delivering 8 revenue, product performance and stock KPIs in one refreshable report in place of manual extracts, by building an Azure Data Factory pipeline into Azure SQL Database behind a Power BI semantic model.",
+    tags: ["SQL", "Azure Data Factory", "Azure SQL Database", "Power BI", "DAX", "Power Query"],
+    metrics: [
+      { value: "100K+", label: "Sales records" },
+      { value: "3", label: "ETL pipelines" },
+      { value: "8", label: "KPIs delivered" },
+    ],
     featured: false,
     category: "analytics",
   },
@@ -209,6 +213,20 @@ export const analyticalWork: Work[] = [
     summary:
       "Attrition, demographics, job roles, compensation, satisfaction and organisational trends in one interactive workforce dashboard.",
     tags: ["Looker Studio", "HR Analytics", "Dashboard Design", "Data Visualization"],
+    featured: false,
+    category: "analytics",
+  },
+  {
+    slug: "banking-analytics",
+    title: "Banking & Financial Transaction Analysis System",
+    kind: "SQL, Excel, Power BI",
+    summary:
+      "Flagged fraud indicators and segmented customers across more than 75,000 financial transactions, reporting the results across 5 performance dimensions, by writing more than 20 advanced SQL queries using joins, window functions and subqueries feeding Power BI reports.",
+    tags: ["SQL", "Excel", "Power BI", "Fraud Detection", "Customer Segmentation"],
+    metrics: [
+      { value: "75K+", label: "Transactions analysed" },
+      { value: "20+", label: "SQL queries" },
+    ],
     featured: false,
     category: "analytics",
   },
@@ -260,6 +278,7 @@ export const experience: ExperienceEntry[] = [
       "Built structured analytical reports and dashboards for business decision-making — more than 10 delivered to senior stakeholders.",
       "Ran customer research with approximately 150 farmers and analysed satisfaction trends.",
       "Performed competitor analysis across 13 outlets to evaluate market positioning.",
+      "Reduced manual reporting effort by approximately 40% by documenting business requirements and SOPs and automating Power BI refresh over standardised data pipelines.",
     ],
   },
   {
@@ -290,6 +309,7 @@ export type EducationEntry = {
   field: string;
   school: string;
   body: string;
+  gpa: string;
 };
 
 export const education: EducationEntry[] = [
@@ -299,6 +319,7 @@ export const education: EducationEntry[] = [
     field: "Business Analytics",
     school: "CMS Business School, JAIN (Deemed-to-be University)",
     body: "Business analytics, data analysis, statistics, business intelligence, machine learning for business, finance and data-driven decision-making.",
+    gpa: "CGPA 7.1/10",
   },
   {
     period: "Completed 2024",
@@ -306,6 +327,7 @@ export const education: EducationEntry[] = [
     field: "Automobile Engineering",
     school: "Bannari Amman Institute of Technology",
     body: "Engineering design, vehicle systems, Formula Student development, technical problem-solving and team leadership.",
+    gpa: "CGPA 7.4/10",
   },
 ];
 

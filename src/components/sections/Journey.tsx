@@ -41,6 +41,9 @@ export function Journey() {
                   <p className="text-sm text-ember-500">{entry.field}</p>
                   <p className="mt-2 text-sm text-paper-dim">{entry.school}</p>
                   <p className="mt-3 text-sm leading-relaxed text-paper-dim">{entry.body}</p>
+                  <span className="tabular mt-3 inline-block rounded-full border border-graphite-700 px-3 py-1 text-xs text-paper">
+                    {entry.gpa}
+                  </span>
                 </li>
               ))}
             </ol>
